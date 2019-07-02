@@ -29,8 +29,8 @@ public class Send_mail {
 		message_dest = dest;
 		Properties props = new Properties();
 
-		/*props.put("mail.transport.protocol", "smtp");
-		props.put("mail.smtp.host", "mailhost.der.edf.fr");
+		/*props.put("", "smtp");
+		props.put("", "");
 		props.put("mail.smtp.port", "25");*/
 
 		props.put("localhost", "25");
@@ -41,7 +41,7 @@ public class Send_mail {
 		try {
 			mesg = new MimeMessage(session);
 			// from
-			mesg.setFrom(new InternetAddress("DIPNN-DI-SIDL@edf.fr"));
+			mesg.setFrom(new InternetAddress("yourmail@mail.com"));
 
 			// Adress TO.
 			InternetAddress toAddress = new InternetAddress(message_dest);
@@ -51,16 +51,7 @@ public class Send_mail {
 			// InternetAddress ccAddress = new InternetAddress(message_cc);
 			// mesg.addRecipient(Message.RecipientType.CC, ccAddress);
 
-			message_body = "Bonjour, <br/>" + "<br/>"
-					+ "Suite à la mise à disposition du nouvel outil ASK’iT pour le traitement de vos demandes de travaux SI, DOC et Logistique au sein de la Direction Industrielle, veuillez trouver vos identifiants afin de vous connecter au portail :\n"
-					+ "<br/>" + "<br/>" + "<br/>"
-					+ "Portail d’accès : <b><a href='http://10.182.115.151:8080/bonita'>ASK'iT</a></b> (sous Firefox exclusivement)<br/>"
-					+ "<br/>" + "Utilisateur (Login) en Majuscule : <b>" + nni + "</b><br/>" + "Mot de passe : <b>"
-					+ password + "</b><br/>" + "<br/>"
-					+ "<b>&#9888 Ce mot de passe devra être changé une fois l’accès au portail effectué et via le menu « Changer son mot de passe » situé dans la barre des menus. &#9888</b><br/>"
-					+ "<br/>" + "<br/>"
-					+ "SIDL reste à votre disposition pour toutes informations complémentaires ou pour toutes anomalies rencontrées à l’adresse suivante : DIPNN-DI-DT@edf.fr <br/>"
-					+ "<br/>" + "Cordialement.<br/>" + "<br/>" + "SIDL";
+			message_body = "Whatever you want";
 
 			/******************************************************************************************************************/
 			mesg.setContent(message_body, "text/html; charset=utf-8");
@@ -70,13 +61,13 @@ public class Send_mail {
 
 			// mesg.setText(message_body); ATTENTION, EMPECHE E HTML DE SE METTRE EN PLACE
 			Transport.send(mesg);
-			System.out.println("--------------------------------------------------\nFrom : DIPPNN_DI_SIDL@edf.fr\nTo : "
+			System.out.println("--------------------------------------------------\nFrom : **********\nTo : "
 					+ message_dest + "\nSubject : " + message_object + "\nMIME-Version : 1.0\nContent-Type :"
 					+ mesg.getContentType() + "\n" + mesg.getAllHeaders() + "\nSent at : " + mesg.getSentDate()
 					+ "\n--------------------------------------------------\n");
 			@SuppressWarnings("unused")
 			Logs_writer logs = new Logs_writer(
-					"--------------------------------------------------\nFrom : Ask'IT-NoReply@edf.fr\nTo : "
+					"--------------------------------------------------\nFrom :**********\nTo : "
 							+ message_dest + "\nSubject : " + message_object + "\nMIME-Version : 1.0\nContent-Type :"
 							+ mesg.getContentType() + "\n" + mesg.getAllHeaders() + "\nSent at : " + mesg.getSentDate()
 							+ "\n--------------------------------------------------\n");
