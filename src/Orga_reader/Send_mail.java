@@ -14,7 +14,7 @@ public class Send_mail {
 	/** Destinataire du message. */
 	protected String message_dest;
 	/* Objet du message. */
-	protected String message_object = "Ask'IT - DIPNN";
+	protected String message_object = "**********N";
 	/** Destinataire du message en copie (CC). */
 	// protected String message_cc = "dest@hotmail.com";
 	/** Texte du message. */
