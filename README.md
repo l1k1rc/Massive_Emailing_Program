@@ -18,3 +18,4 @@ Program allowing the massive sending of mail via a CSV file and the setting up o
 ```
     Write a CSV file in which to put the users' information and their 
     respective emails to set up the email.
+```
